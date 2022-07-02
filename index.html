@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Carnaval Barranquilla</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;500&display=swap" rel="stylesheet">
+        <style>
+            body{
+              background-color: #1E2759;
+                color: white;
+            }
+            footer{
+                background-color: #1E2759;
+                color: white;
+            }
+            header {
+                min-height: 100vh;
+            }
+            .timeline {
+                position: relative;
+                padding: 0;
+                list-style: none;
+            }
+            .timeline:before {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 40px;
+                width: 2px;
+                margin-left: -1.5px;
+                content: "";
+                background-color: #e9ecef;
+            }
+            .timeline > li {
+                position: relative;
+                min-height: 50px;
+                margin-bottom: 50px;
+            }
+            .timeline > li:after,
+            .timeline > li:before {
+                display: table;
+                content: " ";
+            }
+            .timeline > li:after {
+                clear: both;
+            }
+            .timeline > li .timeline-panel {
+                position: relative;
+                float: right;
+                width: 100%;
+                padding: 0 20px 0 100px;
+                text-align: left;
+            }
+            .timeline > li .timeline-panel:before {
+                right: auto;
+                left: -15px;
+                border-right-width: 15px;
+                border-left-width: 0;
+            }
+            .timeline > li .timeline-panel:after {
+                right: auto;
+                left: -14px;
+                border-right-width: 14px;
+                border-left-width: 0;
+            }
+            .timeline > li .timeline-image {
+                position: absolute;
+                z-index: 100;
+                left: 0;
+                width: 80px;
+                height: 80px;
+                margin-left: 0;
+                text-align: center;
+                color: white;
+                border: 7px solid #e9ecef;
+                border-radius: 100%;
+                background-color: #55595c;
+            }
+            .timeline > li .timeline-image h4,
+            .timeline > li .timeline-image .h4 {
+                font-size: 10px;
+                line-height: 14px;
+                margin-top: 12px;
+            }
+            .timeline > li.timeline-inverted > .timeline-panel {
+                float: right;
+                padding: 0 20px 0 100px;
+                text-align: left;
+            }
+            .timeline > li.timeline-inverted > .timeline-panel:before {
+                right: auto;
+                left: -15px;
+                border-right-width: 15px;
+                border-left-width: 0;
+            }
+            .timeline > li.timeline-inverted > .timeline-panel:after {
+                right: auto;
+                left: -14px;
+                border-right-width: 14px;
+                border-left-width: 0;
+            }
+            .timeline > li:last-child {
+                margin-bottom: 0;
+            }
+            .timeline .timeline-heading h4,
+            .timeline .timeline-heading .h4 {
+                margin-top: 0;
+                color: inherit;
+            }
+            .timeline .timeline-heading h4.subheading,
+            .timeline .timeline-heading .subheading.h4 {
+                text-transform: none;
+            }
+            .timeline .timeline-body > ul,
+            .timeline .timeline-body > p {
+                margin-bottom: 0;
+            }
+            @media (min-width: 768px) {
+                .timeline:before {
+                    left: 50%;
+                }
+                .timeline > li {
+                    min-height: 100px;
+                    margin-bottom: 100px;
+                }
+                .timeline > li .timeline-panel {
+                    float: left;
+                    width: 41%;
+                    padding: 0 20px 20px 30px;
+                    text-align: right;
+                }
+                .timeline > li .timeline-image {
+                    left: 50%;
+                    width: 100px;
+                    height: 100px;
+                    margin-left: -50px;
+                }
+                .timeline > li .timeline-image h4,
+                .timeline > li .timeline-image .h4 {
+                    font-size: 13px;
+                    line-height: 18px;
+                    margin-top: 16px;
+                }
+                .timeline > li.timeline-inverted > .timeline-panel {
+                    float: right;
+                    padding: 0 30px 20px 20px;
+                    text-align: left;
+                }
+            }
+            @media (min-width: 992px) {
+                .timeline > li {
+                    min-height: 150px;
+                }
+                .timeline > li .timeline-panel {
+                    padding: 0 20px 20px;
+                }
+                .timeline > li .timeline-image {
+                    width: 150px;
+                    height: 150px;
+                    margin-left: -75px;
+                }
+                .timeline > li .timeline-image h4,
+                .timeline > li .timeline-image .h4 {
+                    font-size: 18px;
+                    line-height: 26px;
+                    margin-top: 30px;
+                }
+                .timeline > li.timeline-inverted > .timeline-panel {
+                    padding: 0 20px 20px;
+                }
+            }
+            @media (min-width: 1200px) {
+                .timeline > li {
+                    min-height: 170px;
+                }
+                .timeline > li .timeline-panel {
+                    padding: 0 20px 20px 100px;
+                }
+                .timeline > li .timeline-image {
+                    width: 170px;
+                    height: 170px;
+                    margin-left: -85px;
+                }
+                .timeline > li .timeline-image h4,
+                .timeline > li .timeline-image .h4 {
+                    margin-top: 40px;
+                }
+                .timeline > li.timeline-inverted > .timeline-panel {
+                    padding: 0 100px 20px 20px;
+                }
+            }
+              .map {
+              width: 150%;
+              height: auto;
+              margin-left: -50px;
+            }
+            p{
+              color: white;
+              text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="d-flex align-items-end">
+            <div class="container-fluid">
+                <div class="row my-auto">
+                    <div class="col-md-8 col-lg-6 mx-auto pb-3 text-center">
+                        <img src="img/cabecera.png" class="w-100"/>
+                        <h4 class="fs-6">La fiesta más importante de Colombia</h4>
+                        <h1 class="display-4">Carnaval de Barranquilla</h1>
+                        <h2 class="fs-3">Un carnaval que presenta la memoria e identidad del pueblo Barranquillero y del Caribe Colombiano. </h2>
+                       
+                        <p class="lead my-4">
+                            El carnaval de Barranquilla se caracteriza por celebrar la diversidad del pueblo colombiano alentando el arte y manteniendo vivas las tradiciones del pasado. En este carnaval se reúnen a las personas durante cuatro días haciendo de las calles un escenario para las expresiones folclóricas, música y danzas tradicionales que despiertan la alegría entre el pueblo y sus visitantes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="container">
+                <div class="row">
+                    <div class="row align-items-end mx-5">
+                            <div class="col-md-8">
+                                <img src="img/mapa.svg" class="map">
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <h4 class="pt-3" style="color:#1E2759">Ubicación</h4>
+                                <p class="pb-4" style="color:#1E2759">
+                                    Barranquilla
+                                    Es una de las principales ciudades de Colombia en Sudamérica, capital del departamento del Atlántico y un destino turístico por la valoración de sus tradiciones y patrimonio cultural. Es reconocida por ser cuna de grandes músicos, literatos y pintores.
+
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="col-md-8 col-lg-10 mx-auto pb-3 text-center">
+                        <h3 class="my-5">Historia</h3>
+                    
+                    <p class="text-center">
+                            El carnaval de Barranquilla tiene su origen en las celebraciones traídas desde España siendo protagonizadas principalmente por esclavos que aparecían disfrazados en las calles con instrumentos típicos de la época, danzando y cantando. No se conoce la fecha del primer carnaval, sin embargo, se sabe que durante el periodo colonial se realizaba en Cartagena de Indias trasladándose a Barranquilla debido al apogeo económico de la ciudad y su conectividad con otras ciudades.
+                    </p>
+                    </div>
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img src="img/momo.png" class="rounded-circle img-fluid" width="500" height="500"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </img>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>1888</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>
+                                        Surge la figura del Rey Momo
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img src="img/flower.png" class="rounded-circle img-fluid" width="500" height="500" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <rect width="100%" height="100%" fill="white" />
+                              </img>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>1903</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>
+                                        Se organiza la primera Batalla de Flores a través de propuesta de Heriberto Vengoechea, con el objeto de recuperar una tradición carnavalesca de años anteriores.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img src="img/queen.png" class="rounded-circle img-fluid" width="500" height="500" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="white" />
+                                </img>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>1918</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>
+                                        Alicia Lafaurie Roncallo fue elegida primera Reina del Carnaval de Barranquilla.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img src="img/parade.png" class="rounded-circle img-fluid" width="500" height="500"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </img>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>1967</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>
+                                        Nace la Gran Parada de Tradición el Domingo de Carnaval, con presencia de todas las manifestaciones tradicionales de la fiesta.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img src="img/17.png" class="rounded-circle img-fluid" width="500" height="500" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </img>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>1995</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>
+                                        La Fundación Carnaval de Barranquilla crea el desfile de la Calle 17 presidido por el Rey Momo, personaje que se rescata ese año. Fue elegido Enrique Salcedo (Q.P.D).
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img src="img/certified.png" class="rounded-circle img-fluid" width="500" height="500"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </img>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2002</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>
+                                        El Carnaval de Barranquilla es declarado por el Senado de la República Patrimonio Cultural de la Nación
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img src="img/unesco.png" class="rounded-circle img-fluid" width="500" height="500" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </img>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2003</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>
+                                        El Carnaval de Barranquilla es declarado por la UNESCO, Obra Maestra del Patrimonio Oral e Intangible de la Humanidad. El anuncio lo hizo Koichiro Matsura, director general de la UNESCO, en una ceremonia que se realizó el 7 de noviembre en la sede de esa organización en París.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+                <div class="col-12 text-center">
+                        <h3 class="mt-5 mb-3">Disfraces y Bailes</h3>
+                                <section>
+                    <div class="container">
+                    <div class="col-md-8 col-lg-10 mx-auto pb-3 text-center">
+                    
+                    <p class="lead my-4">
+                            La música, danza y disfraces son los protagonistas durante los cuatro días que dura el carnaval, en donde conviven diferentes tipos de manifestaciones culturales en una fiesta que celebra las tradiciones y el folclor. 
+                        </p>
+                    </div>
+                    </div>
+                </div>
+              
+            </section>
+
+            <section class="container my-5">
+                <img src="img/dancing.gif" class="w-100"/>
+                <h1 class="fs-4 text-center">Los Congos y la Reina</h1>
+            <div class="container py-5">
+                <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+                  
+                   <br> 
+                    <div class="row text-center ">
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Disfraz</h4>
+                            <p class="small text-start">La vestimenta utilizada por Los Congos son trajes de colores llamativos y brillantes decorados con cintas, lentejuelas, flores y encajes. Los hombres llevan un turbante con velo, un machete con el que golpean el suelo en la mano derecha y un muñeco en la mano izquierda, las mujeres suelen usar flores en la cabeza y collares vistosos.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                   
+                            <h4 class="fs-6 text-center">Música</h4>
+                            <p class="small text-start">Para acompañar la danza del congo se utiliza la formación instrumental de tambores que se tocan en dos tonadas, la tonada llamada corrido en un compás de 2/4 y la tonada llamada atravesado, tambor congo o terribles en compás de 6/8.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Baile</h4>
+                            <p class="small text-start">La danza del Congo se caracteriza por la participación de familias completas. Su origen se remonta a las danzas guerreras del Congo en África. Suele ser un baile totalmente improvisado y en parejas lo que resulta en movimientos completamente sincronizados que representan el juego del amor y erotismo con un espíritu de juego y exageración.</p>
+                        </div>
+                    </div>
+                <div class="container py-12 text-center">
+                    <audio controls>
+                    <source src="horse.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                </div>
+            </div>
+            </div>
+        
+
+        <img src="img/dancing.gif" class="w-100"/>
+        <h1 class="fs-4 text-center">Marimonda</h1>
+            <div class="container py-5">
+                <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+                  
+                   <br> 
+                    <div class="row text-center ">
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Disfraz</h4>
+                            <p class="small text-start">El disfraz nace de la clase obrera y esclavos a finales de 1800 como una forma de burla hacia los elitistas de la época. Consiste en caricaturas de un primate y elefante con una máscara con grandes orejas, una nariz larga y ojos redondos, pantalones al revés y un chaleco viejo que suelen ser de colores llamativos y con estampados, cambiando cada año y representando al típico costeño.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                   
+                            <h4 class="fs-6 text-center">Música</h4>
+                            <p class="small text-start">La danza de marimonda es acompañada del ritmo fandango que es un ritmo alegre y fiestero característico del folclore caribeño colombiano originado en la época precolombina. Suelen usar bombos, redoblante, platillos, trompetas, trombón, bombardino, saxofón, guitarras y bajos. </p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Baile</h4>
+                            <p class="small text-start">La marimonda es un baile realizado por más de 500 personas que avanzan por la calle principal bailando y dando saltos en filas de 4 personas lideradas por los más experimentados. El paso más característico es la canoa, en donde cada bailarín se sienta sobre el asfalto y avanza saltando apoyado sobre las nalgas y remando con los brazos. Al finalizar el baile, se suele desarmar las cuadrillas y motivar al público con pasos alocados.</p>
+                        </div>
+                        </div>
+                <div class="container py-12 text-center">
+                    <audio controls>
+                    <source src="horse.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                </div>
+                </div>
+            </div>
+        
+
+        <img src="img/dancing.gif" class="w-100"/>
+        <h1 class="fs-4 text-center">La Muerte y el Garabato</h1>
+            <div class="container py-5">
+                <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+                  
+                   <br> 
+                    <div class="row text-center ">
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Disfraz</h4>
+                            <p class="small text-start">La vestimenta de los garabatos suelen ser trajes y vestidos en base al negro con franjas amarillas, rojas y verdes decoradas con flores y lentejuelas. Los hombres suelen pintarse la cara de blanco con puntos rojos en las mejillas representando la vida y la muerte, mientras que la muerte es representada por hombres maquillados y vestidos con trajes de esqueletos que suelen llevar un hoz de la muerte.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                   
+                            <h4 class="fs-6 text-center">Música</h4>
+                            <p class="small text-start">El chandé es parte de la música folclórica de Barranquilla, proviene de la fusión de ritmos indígenas y la música negra africana. Los instrumentos que se utilizan originalmente son tambores, maracas, flautas de millo o gaitas acompañadas por las palmas de los danzantes, en la actualidad son interpretadas por orquestas que utilizan baterías y congas.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Baile</h4>
+                            <p class="small text-start">La danza del garabato simboliza la lucha entre la vida y la muerte de una manera irónica y sarcástica al burlarse de las desgracias de la vida a través de movimientos propios de la danza como caracoles, culebras, abanicos, túneles o el movimiento de las olas marcado por el sonido de los tambores y guiados por un caporal. La muerte suele intentar interrumpir la danza, sin embargo, los varones defienden la vida y le ganan demostrando así la perpetuidad de su orgullo.</p>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+            <div class="container py-12 text-center">
+                <audio controls>
+                <source src="horse.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        
+            </section>
+
+            <section class="container my-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="my-5 text-center">Comidas</h3>
+                        <h4 class="fs-6 text-center">(imágenes de referencia, se van a cambar)</h4>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <img src="img/1.jpeg" class="w-100"/>
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        <h4 class="fs-6 text-center">Arroz de payazo</h4>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <img src="img/2.jpeg" class="w-100"/>
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        <h4 class="fs-6 text-center">El patillazo</h4>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <img src="img/3.jpeg" class="w-100"/>
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        <h4 class="fs-6 text-center">Arepa trifásica</h4>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <img src="img/4.jpeg" class="w-100"/>
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        <h4 class="fs-6 text-center">Pescado en cabrito</h4>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-fluid g-0">
+                <div class="row g-0">
+                    <div class="col-12 text-center">
+                        <h3 class="mt-5 mb-3">Trayecto</h3>
+                        <div class="row text-center ">
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            
+                            <p class="small text-start"> </p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                   
+                            
+                            <p class="small text-start">El carnaval se celebra cuatro días antes de iniciar la cuaresma en donde los barranquilleros y extranjeros se entregan a la celebración en las calles de la Vía 40, Carretera 44, y el paseo Bolívar donde se realizan desfiles de forma simultánea.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            
+                            <p class="small text-start"> </p>
+                        </div>
+                    </div>
+                    <div class="row text-center ">
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Día 1: Batalla de las flores5</h4>
+                            <p class="small text-start">La vestimenta de los garabatos suelen ser trajes y vestidos en base al negro con franjas amarillas, rojas y verdes decoradas con flores y lentejuelas. Los hombres suelen pintarse la cara de blanco con puntos rojos en las mejillas representando la vida y la muerte, mientras que la muerte es representada por hombres maquillados y vestidos con trajes de esqueletos que suelen llevar un hoz de la muerte.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                   
+                            <h4 class="fs-6 text-center">Música</h4>
+                            <p class="small text-start">El chandé es parte de la música folclórica de Barranquilla, proviene de la fusión de ritmos indígenas y la música negra africana. Los instrumentos que se utilizan originalmente son tambores, maracas, flautas de millo o gaitas acompañadas por las palmas de los danzantes, en la actualidad son interpretadas por orquestas que utilizan baterías y congas.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Baile</h4>
+                            <p class="small text-start">La danza del garabato simboliza la lucha entre la vida y la muerte de una manera irónica y sarcástica al burlarse de las desgracias de la vida a través de movimientos propios de la danza como caracoles, culebras, abanicos, túneles o el movimiento de las olas marcado por el sonido de los tambores y guiados por un caporal. La muerte suele intentar interrumpir la danza, sin embargo, los varones defienden la vida y le ganan demostrando así la perpetuidad de su orgullo.</p>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="row py-3">
+                    <div class="col-12">
+                        <p style="color:#1E2759">
+                        <p class="d-flex justify-content-between small p-1 m-0">
+                            <!--reemplaza el # que sigue con la URL de su cuenta de organización en GitHub-->
+                            <a href="https://carnavaldebarranquilla.github.io/maqueta2/" class="link-white">Carnaval de Barranquilla</a>
+                            <a href="https://github.com/profesorfaco/dno075-2022-1/" class="link-white">Infografía Digital</a>
+                            <a href="https://github.com/profesorfaco/dno075-2022-1/tree/main/clase-12" class="d-none d-lg-inline link-white">Lunes 4 de julio, 2022</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>
